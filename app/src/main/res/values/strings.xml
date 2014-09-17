@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Iamhere</string>
+    <string name="prompt">You are not signed in. Please enter your name below.</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint">Your name.</string>
+    <string name="button">Submit</string>
+    <string name="location">Location</string>
+
+</resources>
