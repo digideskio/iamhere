@@ -10,14 +10,10 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
 public class AlarmReceiver extends BroadcastReceiver {
-
-    public static int ID = ReceiveTransitionsIntentService.ID;
 
     public AlarmReceiver() {
     }
@@ -43,14 +39,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         private void httpPut() throws IOException {
             HttpClient httpclient = new DefaultHttpClient();
-            System.out.println("http://iamhere.smalldata.io/occupancy/" + ReceiveTransitionsIntentService.ID + "/update");
             HttpPost httppost = new HttpPost("http://iamhere.smalldata.io/occupancy/" + ReceiveTransitionsIntentService.ID + "/update");
-
-            HttpResponse response = httpclient.execute(httppost);
-            HttpEntity entity = response.getEntity();
-            String responseString = EntityUtils.toString(entity);
-            System.out.println(responseString);
-
+            httpclient.execute(httppost);
         }
 
     }

@@ -26,7 +26,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -51,7 +50,6 @@ public class ReceiveTransitionsIntentService extends IntentService {
             System.out.println("Location client has a mofucking error");
         }
         else {
-            Long time = new GregorianCalendar().getTimeInMillis();
             Intent intentAlarm = new Intent(this, AlarmReceiver.class);
             AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -67,6 +65,7 @@ public class ReceiveTransitionsIntentService extends IntentService {
             if (transition == Geofence.GEOFENCE_TRANSITION_EXIT) {
                 departName(ID);
                 checkedIn = false;
+
                 alarmManager.cancel(PendingIntent.getBroadcast(this, 1, intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
             }
             if (transition == Geofence.GEOFENCE_TRANSITION_DWELL) {
@@ -100,9 +99,9 @@ public class ReceiveTransitionsIntentService extends IntentService {
         return 0;
     }
 
-    public void departName(Integer id) {
+    public void departName(int id) {
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost("http://iamhere.smalldata.io/occupancy/" + id.toString() + "/depart");
+        HttpPost httppost = new HttpPost("http://iamhere.smalldata.io/occupancy/" + id + "/depart");
 
         try {
             httpclient.execute(httppost);
