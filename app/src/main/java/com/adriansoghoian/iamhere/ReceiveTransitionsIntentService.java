@@ -46,7 +46,6 @@ public class ReceiveTransitionsIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         if (LocationClient.hasError(intent)) {
-            System.out.println("Location client has a mofucking error");
         }
         else {
             Intent intentAlarm = new Intent(this, AlarmReceiver.class);
