@@ -3,19 +3,18 @@ package com.adriansoghoian.iamhere;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.hardware.SensorEventListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.location.LocationStatusCodes;
 
 import java.util.ArrayList;
 
